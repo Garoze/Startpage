@@ -20,7 +20,7 @@ function startTime() {
     if (hour >= 17 && hour <= 24) greetMessage = 'Boa Noite ';
 
     document.getElementById('sGreetings').innerHTML = `
-        <b>${greetMessage}</b> Garoze <br> Hoje é <b>${dayWeek[today.getDay()]}-feira</br>!
+        <b>${greetMessage}</b> Garoze <br> Hoje é <b>${dayWeek[today.getDay()]}-feira</b>!
     `
 
 }
