@@ -1,27 +1,27 @@
-const checkTime = (i) => {
-    if (i < 10) return {i = "0" + i};
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};
     return i;
 }
 
-const getGreetMessage = (actualHour) => {
-    if (actualHour < 12) return 'Bom Dia ';
-    if (actualHour >= 12 && actualHour <= 17) return 'Bom Tarde ';
-    if (actualHour >= 17 && actualHour <= 24) return 'Boa Noite ';
-}
-
-const startTime = () => {
-    const today = new Date();
-    const hour = today.getHours();
-    const dayWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
-
-    let minutes = today.getMinutes();
+function startTime() {
+    let today = new Date();
+    let hour = today.getHours();
+    let minute = today.getMinutes();
     let seconds = today.getSeconds();
 
-    minutes = checkTime(minutes);
+    minute = checkTime(minute);
     seconds = checkTime(seconds);
 
+    const dayWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+
+    let greetMessage;
+    if (hour < 12) greetMessage = 'Bom Dia ';
+    if (hour >= 12 && hour <= 17) greetMessage = 'Boa Tarde ';
+    if (hour >= 17 && hour <= 24) greetMessage = 'Boa Noite ';
+
     document.getElementById('sGreetings').innerHTML = `
-        <b>${getGreetMessage(hour)}</b> Garoze <br> Hoje é <b>${dayWeek[today.getDay()]}-feira</b>!
+        <b>${greetMessage}</b> Garoze <br> Hoje é <b>${dayWeek[today.getDay()]}-feira</br>!
     `
+
 }
 
