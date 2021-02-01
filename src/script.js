@@ -12,7 +12,7 @@ function startTime() {
     minute = checkTime(minute);
     seconds = checkTime(seconds);
 
-    const dayWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+    const dayWeek = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
 
     let greetMessage;
     if (hour < 12) greetMessage = 'Bom Dia ';
@@ -20,7 +20,7 @@ function startTime() {
     if (hour >= 17 && hour <= 24) greetMessage = 'Boa Noite ';
 
     document.getElementById('sGreetings').innerHTML = `
-        <b>${greetMessage}</b> Garoze <br> Hoje é <b>${dayWeek[today.getDay()]}-feira</b>!
+        <b>${greetMessage}</b> Garoze <br> Hoje é <b>${dayWeek[today.getDay()]}</b>!
     `
 
 }
