@@ -4,9 +4,9 @@ function checkTime(i) {
 }
 
 function getTimeMessage(hour) {
-    if (hour < 12) 'Bom dia ';
-    if (hour >= 12 && hour <= 17) 'Boa Tarde ';
-    if (hour >= 17 && hour <= 24) 'Boa Noite ';
+    if (hour < 12) return 'Bom dia ';
+    if (hour >= 12 && hour <= 17) return 'Boa Tarde ';
+    if (hour >= 17 && hour <= 24) return 'Boa Noite ';
 }
 
 function getDayOfTheWeek(day) {
@@ -17,8 +17,9 @@ function getDayOfTheWeek(day) {
 function startTime() {
     const today = new Date();
     const hour = today.getHours();
-    const minute = today.getMinutes();
-    const seconds = today.getSeconds();
+
+    let minute = today.getMinutes();
+    let seconds = today.getSeconds();
 
     minute = checkTime(minute);
     seconds = checkTime(seconds);
@@ -27,5 +28,8 @@ function startTime() {
         <b>${getTimeMessage(hour)}</b> Garoze <br> Hoje é <b>${getDayOfTheWeek(today.getDay())}</b>!
     `
 
+
 }
+
+
 
