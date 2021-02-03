@@ -3,24 +3,28 @@ function checkTime(i) {
     return i;
 }
 
+function getTimeMessage(hour) {
+    if (hour < 12) 'Bom dia ';
+    if (hour >= 12 && hour <= 17) 'Boa Tarde ';
+    if (hour >= 17 && hour <= 24) 'Boa Noite ';
+}
+
+function getDayOfTheWeek(day) {
+    const dayWeek = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+    return dayWeek[day];
+}
+
 function startTime() {
-    let today = new Date();
-    let hour = today.getHours();
-    let minute = today.getMinutes();
-    let seconds = today.getSeconds();
+    const today = new Date();
+    const hour = today.getHours();
+    const minute = today.getMinutes();
+    const seconds = today.getSeconds();
 
     minute = checkTime(minute);
     seconds = checkTime(seconds);
 
-    const dayWeek = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
-
-    let greetMessage;
-    if (hour < 12) greetMessage = 'Bom Dia ';
-    if (hour >= 12 && hour <= 17) greetMessage = 'Boa Tarde ';
-    if (hour >= 17 && hour <= 24) greetMessage = 'Boa Noite ';
-
     document.getElementById('sGreetings').innerHTML = `
-        <b>${greetMessage}</b> Garoze <br> Hoje é <b>${dayWeek[today.getDay()]}</b>!
+        <b>${getTimeMessage(hour)}</b> Garoze <br> Hoje é <b>${getDayOfTheWeek(today.getDay())}</b>!
     `
 
 }
